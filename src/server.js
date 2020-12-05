@@ -14,7 +14,7 @@ const PASS_GMAIL = process.env.PASS_GMAIL
 
 const { info } = require('console');
 
-const port = 3030
+const port = 3000
 
 const user = USER_GMAIL
 const pass = PASS_GMAIL
