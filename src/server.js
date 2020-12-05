@@ -14,7 +14,7 @@ const PASS_GMAIL = process.env.PASS_GMAIL
 
 const { info } = require('console');
 
-const port = 3000
+const PORT = process.env.PORT || 5000;
 
 const user = USER_GMAIL
 const pass = PASS_GMAIL
@@ -47,4 +47,4 @@ app.post('/send', (req, res) => {
         .catch(error => { res.send(error) })
 })
 
-app.listen(port, () => console.log(`Servidor escutando na porta ${port}...`));
+app.listen(PORT, () => console.log(`Servidor escutando na porta ${PORT}...`));
