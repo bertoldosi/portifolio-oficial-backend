@@ -3,10 +3,11 @@ const nodemailer = require('nodemailer')
 const bodyParser = require('body-parser')
 require('dotenv').config()
 var cors = require('cors')
+
 const app = express();
 
 app.use(bodyParser.json()) // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 
 const USER_GMAIL = process.env.USER_GMAIL
@@ -25,8 +26,10 @@ app.get('/', (req, res) => {
 })
 
 app.post('/send', (req, res) => {
-
-    const { nome, email, mensagem } = req.body;
+    
+    const email = req.body.params.email
+    const nome = req.body.params.nome
+    const mensagem = req.body.params.mensagem
 
     const transporter = nodemailer.createTransport({
         service: 'gmail',
